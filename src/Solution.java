@@ -26,10 +26,14 @@ public class Solution {
 
     static class MyPanel extends JPanel{
 
-        private JLabel user = new JLabel("User: ");
-        private JTextField userField = new JTextField();
-        private JLabel password = new JLabel("Password: ");
-        private JTextField passField = new JTextField();
+        private JLabel name = new JLabel("Name: ");
+        private JTextField c_name = new JTextField();
+        private JLabel secName = new JLabel("Second Name: ");
+        private JTextField c_secName = new JTextField();
+        private JLabel age = new JLabel("Age: ");
+        private JTextField c_age = new JTextField();
+        private JLabel phone = new JLabel("Phone Number: ");
+        private JTextField c_phone = new JTextField();
         private JButton sendButton = new JButton("Send");
 
         public MyPanel() {
@@ -42,10 +46,14 @@ public class Solution {
             passField.setBounds(150,40,130,15);
             sendButton.setBounds(150,70,80,30);*/
 
-            add(user);
-            add(userField);
-            add(password);
-            add(passField);
+            add(name);
+            add(c_name);
+            add(secName);
+            add(c_secName);
+            add(age);
+            add(c_age);
+            add(phone);
+            add(c_phone);
             add(sendButton);
 
 
@@ -53,9 +61,6 @@ public class Solution {
     }
 
     static class MyManagerLayout implements LayoutManager{
-
-        private int x = 20;
-        private int y = 20;
 
         @Override
         public void addLayoutComponent(String s, Component component) {
@@ -81,17 +86,21 @@ public class Solution {
         public void layoutContainer(Container container) {
 
             int count = 0;
+            int c_width = container.getWidth();
             int total = container.getComponentCount();
+
+            int x =c_width/2;
+            int y = 20;
 
             for (int i = 0; i < total; i++) {
                 count++;
                 Component component = container.getComponent(i);
-                component.setBounds(x,y,100,15);
+                component.setBounds(x-100,y,115,15);
 
                 if(count%2==0) {
-                    x = 20;
-                    y += 40;
-                }else x+=100;
+                    x = c_width/2;
+                    y += 30;
+                }else x+=115;
             }
 
         }
